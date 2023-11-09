@@ -5,20 +5,23 @@ using UnityEngine.UI;
 
 public class SoundController : MonoBehaviour
 {
-   
-   public Slider volumeSlider;
-   public AudioSource backgroundMusic;
+    // Referência ao controle deslizante de volume no Unity UI
+    public Slider volumeSlider;
 
-   private void Start()
-   {
-    volumeSlider.onValueChanged.AddListener(ChangeVolume);
-   }
+    // Referência à música de fundo que será controlada pelo script
+    public AudioSource backgroundMusic;
 
-    private void ChangeVolume(float volume)
+    // Função chamada no início para configurar o listener de mudança de valor do controle deslizante
+    private void Start()
     {
-        backgroundMusic.volume = volume;
+        // Adiciona um listener para detectar mudanças no valor do controle deslizante
+        volumeSlider.onValueChanged.AddListener(ChangeVolume);
     }
 
-
-
+    // Função chamada quando há uma mudança no valor do controle deslizante de volume
+    private void ChangeVolume(float volume)
+    {
+        // Ajusta o volume da música de fundo de acordo com o valor do controle deslizante
+        backgroundMusic.volume = volume;
+    }
 }
